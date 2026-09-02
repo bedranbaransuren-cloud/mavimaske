@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mavi Maske Tiyatro</title>
+  <link rel="stylesheet" href="/css/behind-the-scenes-modal.css">
+</head>
+<body>
+
+  <!-- Existing site content would be above -->
+
+  <!-- Inserted Behind the Scenes section -->
+  <!-- (This content is also available as public/behind-the-scenes-modal.html) -->
+  <section id="behind-the-scenes" class="bts-section" role="region" aria-labelledby="bts-heading">
+    <div class="bts-inner container">
+      <h2 id="bts-heading" class="bts-title">Behind the Scenes</h2>
+      <p class="bts-intro">Peek into our playful world — children's theater, bubble shows, giant puppets, stilt walkers, inflatables, clowns, mascots, and Hacivat &amp; Karagöz shadow theater.</p>
+
+      <div class="bts-card">
+        <button class="video-poster" id="bts-open" aria-haspopup="dialog"
+                data-video-type="selfhost" data-video-mp4="/media/bts.mp4" data-video-webm="/media/bts.webm" data-caption-src="/media/bts.vtt" aria-label="Open Behind the Scenes video">
+          <img class="poster-img" src="/assets/images/bts-poster.jpg" alt="Behind the scenes poster showing puppets and performers" width="1280" height="720" />
+          <svg class="play-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" fill="var(--accent,#ff6fb5)" opacity="0.98" />
+            <polygon points="26,20 26,44 46,32" fill="white" />
+          </svg>
+        </button>
+
+        <div class="bts-meta">
+          <a class="bts-transcript" href="/behind-the-scenes-transcript.html">Transcript & captions</a>
+          <span class="bts-note">Tap to watch — captions available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal markup: place once, ideally just before </body> -->
+  <div id="bts-modal" class="bts-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="bts-modal-title">
+    <div class="bts-modal-overlay" tabindex="-1" data-close="overlay"></div>
+    <div class="bts-modal-panel" role="document">
+      <button class="bts-modal-close" id="bts-close" aria-label="Close video">&times;</button>
+      <h3 id="bts-modal-title" class="visually-hidden">Behind the Scenes video</h3>
+      <div class="bts-modal-content">
+        <!-- Video container: JS injects <iframe> or <video> here -->
+        <div id="bts-video-container" class="bts-video-container" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/behind-the-scenes-modal.js" defer></script>
+</body>
+</html>
